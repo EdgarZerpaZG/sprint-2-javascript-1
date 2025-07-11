@@ -1,33 +1,59 @@
 // Level 1
 // Exercise 1
-const num1 = 3;
-const num2 = 5;
-
-function suma(num1, num2){
-    return num1 + num2
-}
-document.getElementById("suma").innerHTML = suma(num1, num2);
-
-// Exercise 2
-const randomNumber = () => Math.floor(Math.random() * 101);
-document.getElementById("random-number").innerHTML = randomNumber();
-
-// Exercise 3
-persona = new Persona ("Edgar");
-
-document.getElementById("saludar").innerHTML = persona.toString();
-
-// Level 2
-// Exercise 4
-const numbers = [1, 2, 3, 4, 5];
-const printNumbers = () => {
-    for (let number of numbers){
-        console.log(number);
+const edad = parseInt(prompt("Ingrese su edad"));
+function potConducir(edad){
+    if(edad >= 18){
+        console.log("Can drive");
+    }else{
+        console.log("Can't drive")
     }
 }
-printNumbers();
+potConducir(edad);
 
-// Exercise 5
-setTimeout(() => {
-  console.log("Este mensaje aparece 3 segundos despúes de cargar el DOM.");
-}, "3000");
+// Exercise 2
+const num1 = 5;
+const num2 = 10;
+if(num1 > num2){
+    console.log("num1 es mayo");
+}else{
+    console.log("num2 es mayor")
+}
+
+// Level 2
+// Exercise 3
+const num3 = 0;
+if(num3 > 0){
+    console.log("num3 es positivo");
+}else if(num3 < 0){
+    console.log("num3 es negativo");
+}else{
+    console.log("num3 es cero");
+}
+
+const a = 6;
+const b = 9;
+const c = 8;
+function trobarMaxim(a, b, c){
+    if(a > b && a > c){
+        console.log("a es el mayor número");
+    }else if(b > a && b > c){
+        console.log("b es el mayor número");
+    }else{
+        console.log("c es el mayor número");
+    }
+}
+trobarMaxim(a, b, c)
+
+// Level 3
+// Exercise 4
+const numbers = [1, 2, 3, 4, 5];
+function parOImpar(){   
+    for(let i = 0; i < numbers.length; i++){
+        if(numbers % 2 == 0){
+            console.log("El número en la posición " + i + " del array es " + numbers[i] + " por lo tanto es par");
+        }else{
+            console.log("El número en la posición " + i + " del array es " + numbers[i] + " por lo tanto es impar");
+        }
+    }
+}
+parOImpar()
