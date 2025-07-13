@@ -7,6 +7,6 @@ class Persona{
     }
 
     toString(){
-        return "Hola mi nombre es " + this.nom
+        return `Hola mi nombre es ${this.nom}`;
     }
 };
