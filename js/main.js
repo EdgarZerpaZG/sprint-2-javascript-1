@@ -1,58 +1,63 @@
 // Level 1
 // Exercise 1
-const edad = parseInt(prompt("Ingrese su edad"));
+console.log("1. Funcion para comprobar si es apto para conducir: ");
+const edad = 25;
 function potConducir(edad){
     if(edad >= 18){
-        console.log("Can drive");
+        console.log("You can drive");
     }else{
-        console.log("Can't drive")
+        console.log("You can't drive")
     }
 }
 potConducir(edad);
 
 // Exercise 2
+console.log("2. Funcion para comprobar que número es mayor: ");
 const num1 = 5;
 const num2 = 10;
 if(num1 > num2){
-    console.log("num1 es mayo");
+    console.log("num1 is higher");
 }else{
-    console.log("num2 es mayor")
+    console.log("num2 is lower")
 }
 
 // Level 2
 // Exercise 3
+console.log("3a. Funcion para comprobar si el número es positivo, negativo o es 0: ");
 const num3 = 0;
 if(num3 > 0){
-    console.log("num3 es positivo");
+    console.log("num3 is positive");
 }else if(num3 < 0){
-    console.log("num3 es negativo");
+    console.log("num3 is negative");
 }else{
     console.log("num3 es cero");
 }
 
+console.log("3b. Funcion para comprobar que número es el mayor: ");
 const a = 6;
 const b = 9;
 const c = 8;
 function trobarMaxim(a, b, c){
     if(a > b && a > c){
-        console.log("a es el mayor número");
+        console.log("a is the higher number");
     }else if(b > a && b > c){
-        console.log("b es el mayor número");
+        console.log("b is the higher number");
     }else{
-        console.log("c es el mayor número");
+        console.log("c is the higher number");
     }
 }
 trobarMaxim(a, b, c)
 
 // Level 3
 // Exercise 4
+console.log("4. Funcion para comprobar si los números dentro de un array son par o impar: ");
 const numbers = [1, 2, 3, 4, 5];
 function parOImpar(){   
     for(let i = 0; i < numbers.length; i++){
-        if(numbers % 2 == 0){
-            console.log("El número en la posición " + i + " del array es " + numbers[i] + " por lo tanto es par");
+        if(numbers[i] % 2 == 0){
+            console.log("The number in the position " + i + " is " + numbers[i] + "  therefore it's even");
         }else{
-            console.log("El número en la posición " + i + " del array es " + numbers[i] + " por lo tanto es impar");
+            console.log("The number in the position " + i + " is " + numbers[i] + " therefore it's odd");
         }
     }
 }
