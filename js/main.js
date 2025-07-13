@@ -1,64 +1,58 @@
 // Level 1
 // Exercise 1
-console.log("1. Funcion para comprobar si es apto para conducir: ");
-const edad = 25;
-function potConducir(edad){
-    if(edad >= 18){
-        console.log("You can drive");
-    }else{
-        console.log("You can't drive")
-    }
+console.log("1. Callback básico: ");
+const name1 = "Edgar";
+function procesar(name1, callback){
+    console.log(name1);
+    callback(name1);
 }
-potConducir(edad);
+procesar(name1, function(name1){
+    console.log("Saludos de " + name1 + " desde el callback");
+});
 
 // Exercise 2
-console.log("2. Funcion para comprobar que número es mayor: ");
-const num1 = 5;
-const num2 = 10;
-if(num1 > num2){
-    console.log("num1 is higher");
-}else{
-    console.log("num2 is lower")
+console.log("2. Callback con operaciones matemáticas: ");
+const num1 = "Edgar";
+const num2 = "Zerpa";
+function calculadora(num1, num2, calc){
+    calc(num1, num2);
 }
+calculadora(num1, num2, function(num1, num2){
+    console.log("Mi nombre es " + num1 + " " + num2);
+})
 
 // Level 2
 // Exercise 3
-console.log("3a. Funcion para comprobar si el número es positivo, negativo o es 0: ");
-const num3 = 0;
-if(num3 > 0){
-    console.log("num3 is positive");
-}else if(num3 < 0){
-    console.log("num3 is negative");
-}else{
-    console.log("num3 es cero");
+console.log("3. Callback en funciones asíncronas: ");
+const name2 = "Edgar";
+function esperarSaludo(name2, esperar){
+    esperar(name2);
 }
+esperarSaludo(name2, function(name2){
+    setTimeout(() => {
+        console.log("Soy " + name2 +  " y envío un saludo!");
+    }, 2000);
+});
 
-console.log("3b. Funcion para comprobar que número es el mayor: ");
-const a = 6;
-const b = 9;
-const c = 8;
-function trobarMaxim(a, b, c){
-    if(a > b && a > c){
-        console.log("a is the higher number");
-    }else if(b > a && b > c){
-        console.log("b is the higher number");
-    }else{
-        console.log("c is the higher number");
-    }
+// Exercise 4
+console.log("4. Callback con array: ");
+const names = ["Edgar", "Carlos", "Luis"];
+function procesarElementos(names, elements){
+    elements(names);
 }
-trobarMaxim(a, b, c)
+procesarElementos(names, function(names){
+    names.forEach(element => {
+        console.log(element)
+    });
+});
 
 // Level 3
-// Exercise 4
-console.log("4. Funcion para comprobar si los números dentro de un array son par o impar: ");
-const numbers = [1, 2, 3, 4, 5];
-function parOImpar(){   
-    for(let i = 0; i < numbers.length; i++){
-        if(numbers[i] % 2 == 0){
-            console.log("The number in the position " + i + " is " + numbers[i] + "  therefore it's even");
-        }else{
-            console.log("The number in the position " + i + " is " + numbers[i] + " therefore it's odd");
-        }
-    }
+// Exercise 5
+console.log("5. Callback transformar a mayúscula: ");
+const sentencia = "Hola mundo!";
+function procesarCadena(sentencia, cadena){
+    cadena(sentencia);
 }
-parOImpar()
+procesarCadena(sentencia, function(sentencia){
+    console.log(sentencia.toUpperCase());
+})
