@@ -1,48 +1,93 @@
 // Level 1
 // Exercise 1
-console.log("1. forEach: ");
-const noms1 = ['Anna', 'Bernat', 'Clara'];
-noms1.forEach((element) => console.log(element));
+console.log("1. Crear una promise: ");
+const promiseOne = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("Hola mundo");
+    }, 2000);
+  });
+};
+console.log(promiseOne());
 
 // Exercise 2
-console.log("2. for-of: ");
-const noms2 = ['Anna', 'Bernat', 'Clara'];
-for(nom2 of noms2){
-    console.log(nom2);
-}
+console.log("2. Utilización de una promise: ");
+const promiseTwo = new Promise((resolve) => {
+
+    let x = 0;
+
+    if(x == 0){
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    }
+});
+promiseTwo.then(
+  (value) => { console.log("OK! el valor es 0!"); },
+);
 
 // Exercise 3
-console.log("3. filter: ");
-const noms3 = [1, 2, 3, 4, 5, 6];
-const noms3Par = noms3.filter((noms) => noms % 2 == 0);
-console.log(noms3Par);
+console.log("3. Promise con reject: ");
+const promiseThree = new Promise((resolve, reject) => {
+
+    let x = prompt("Ingrese la palabra 'hola'");
+
+    if(x == "hola"){
+        setTimeout(() => {
+            resolve();
+        }, 2000);
+    }else{
+        setTimeout(() => {
+            reject();
+        }, 2000);
+    }
+});
+promiseThree.then(
+  (value) => { console.log("OK! el valor es correcto!"); },
+  (error) => { console.log("Error, el valor no es el correcto"); }
+);
+
+// Exercise 4
+console.log("4. Async/Await: ");
+async function funcPromiseOne() {
+    const promiseFour = new Promise((resolve, reject) => {
+        setTimeout(() => { 
+            resolve("Hola mundo desde Async/Await!"); 
+        }, 2000);
+    });
+    console.log(await promiseFour);
+}
+funcPromiseOne();
 
 // Level 2
-// Exercise 4
-console.log("4. for-in: ");
-const obj = { 
-    nom: "Ona", 
-    edat: 25, 
-    ciutat: 'Barcelona'
-};
-for(const data in obj){
-    console.log(`${data}: ${obj[data]}`);
-}
-
 // Exercise 5
-console.log("5. for-of with break: ");
-const noms4 = [1, 2, 3, 4, 5, 6];
-for(const nom4 of noms4){
-    if(nom4 == 5){
-        break;
+console.log("5. Gestión de errores Async/Await: ");
+async function funcPromiseTwo() {
+    const promiseFive = new Promise((resolve, reject) => {
+        setTimeout(() => { 
+            resolve("Hola mundo desde Async/Await Try/Catch!"); 
+        }, 3000);
+    });
+    console.log(await promiseFive);
+    try {
+        notFunction();
+    } catch (error) {
+        console.log("No se ha encontrado la funcion")
     }
-    console.log(nom4)
 }
+funcPromiseTwo();
 
 // Level 3
 // Exercise 6
-console.log("6. For-of index: ");
-const noms5 = ['Anna', 'Bernat', 'Clara'];
-for(const nom5 of noms5){
-    console.log("El nombre " + nom5 + " está en la posición " + noms5.indexOf(nom5));
-}
+console.log("6. Promise.all: ");
+const promiseSix = Promise.resolve(3);
+const promiseSeven = 3;
+const promiseEight = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("Hola mundo desde promise.all");
+    }, 4000);
+});
+
+Promise.all([promiseSix, promiseSeven, promiseEight]).then((values) => {
+    console.log(values);
+});
