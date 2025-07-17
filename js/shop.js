@@ -86,15 +86,32 @@ const total = 0;
 const buy = (id) => {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array
-        const item = products.filter(product => product.id === id)
-        console.log(item[id - 1])
-        cart.push([item[id - 1]]);
-        console.log(cart);
 
+        const product = products.find(item => item.id === id);
+
+        const cartProduct = cart.find(item => item.id === id);
+
+        if (cartProduct){
+            cartProduct.quantity += 1;
+        } else {
+            cart.push({...product, quantity: 1});
+        }
+
+        console.log(cart);
 }
+
 
 // Exercise 2
 const cleanCart = () =>  {
+
+    for(let product in cart){
+        if(cart.hasOwnProperty(product)){
+            cart.splice(0, cart.length);
+            console.log(cart);
+        }else{
+            console.log("El carrito está vacio!")
+        }
+    }
 
 }
 
