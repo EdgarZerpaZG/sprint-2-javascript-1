@@ -1,1 +1,1 @@
-console.log("Mensaje desde el JS");
+console.log("Sprint 2: Basic exercises - JavaScript 1");
