@@ -96,7 +96,8 @@ const buy = (id) => {
         } else {
             cart.push({...product, quantity: 1});
         }
-
+        
+        calculateTotal();
         console.log(cart);
 }
 
@@ -113,11 +114,17 @@ const cleanCart = () =>  {
         }
     }
 
+    calculateTotal();
+
 }
 
 // Exercise 3
 const calculateTotal = () =>  {
     // Calculate total price of the cart using the "cartList" array
+    const totalPrice = document.getElementById('total_price');
+    const productTotalPrice = cart.filter((i) => i.price);
+    console.log(productTotalPrice)
+    totalPrice.innerHTML = productTotalPrice;
 }
 
 // Exercise 4
