@@ -96,25 +96,19 @@ const buy = (id) => {
         } else {
             cart.push({...product, quantity: 1});
         }
+
+        console.log(cart);
         
         calculateTotal();
-        applyPromotionsCart();
-        console.log(cart);
+        // applyPromotionsCart();
 }
 
 
 // Exercise 2
 const cleanCart = () =>  {
 
-    for(let product in cart){
-        if(cart.hasOwnProperty(product)){
-            cart.splice(0, cart.length);
-            console.log(cart);
-        }else{
-            console.log("El carrito está vacio!")
-        }
-    }
-
+    cart.length = 0;
+    console.log("Carrito limpio:", cart);
     calculateTotal();
 
 }
@@ -122,12 +116,17 @@ const cleanCart = () =>  {
 // Exercise 3
 const calculateTotal = () =>  {
     // Calculate total price of the cart using the "cartList" array
+    total = 0;
+    let quantity = 0;
     const totalPrice = document.getElementById('total_price');
+    const totalCount = document.getElementById('count_product');
     for (let i = 0; i < cart.length; i++) {
-        total += cart[i].price;
+        quantity += cart[i].quantity;
+        total += cart[i].price * quantity;
     }
-    console.log(total);
-    totalPrice.innerHTML = total;
+    console.log("El total en el carrito es de: " + total + " €");
+    totalCount.innerHTML = quantity;
+    totalPrice.innerHTML = total.toFixed(2) + " €";
 }
 
 // Exercise 4
@@ -135,17 +134,17 @@ const applyPromotionsCart = () =>  {
     // Apply promotions to each item in the array "cart"
     for(let i = 0; i < cart.length; i++){
         console.log(cart[i].quantity);
-        if(cart[i].quantity >= 3){
+        if(cart[i].id == 1 && cart[i].quantity >= 3){
+            console.log("Precio sin descuento: " + cart[i].price);
             const priceDct1 = cart[i].price * 0.2;
-            console.log(priceDct1)
-        }else if(cart[i].quantity >= 10){
+            console.log("Descuento aplicado: " + priceDct1);
+        }
+        if(cart[i].id == 3 && cart[i].quantity >= 10){
+            console.log("Precio sin descuento: " + cart[i].price);
             const priceDct2 = cart[i].price * 0.3;
-            console.log(priceDct2)
-        }else{
-            return;
+            console.log("Descuento aplicado: " + priceDct2);
         }
     }
-    calculateTotal();
 }
 
 // Exercise 5
