@@ -5,7 +5,13 @@ body{
 }
 /******************Generales*******************/
 /**********************************************/
-.fa-arrow-left, .fa-arrow-right{
+.d-block{
+    display: block !important;
+}
+.d-none{
+    display: none !important;
+}
+.fa-minus, .fa-plus{
     cursor: pointer;
 }
 /*****************Main Content*****************/

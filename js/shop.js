@@ -1,84 +1,22 @@
-console.log("Saludos desde shop.js")
 // Products
-// async function obtenerDatosJSON() {
-//   try {
-//     const respuesta = await fetch('../json/products.json');
-//     const datos = await respuesta.json();
-//     console.log(datos);
-//   } catch (error) {
-//     console.error('Error al obtener los datos:', error);
-//   }
-// }
-// obtenerDatosJSON();
+let products = [];
 
-const products = [
-    {
-        id: 1,
-        name: 'Cooking oil',
-        price: 10.5,
-        type: 'grocery',
-        offer: {
-            number: 3,
-            percent: 20
-        }
-    },
-    {
-        id: 2,
-        name: 'Pasta',
-        price: 6.25,
-        type: 'grocery'
-    },
-    {
-        id: 3,
-        name: 'Instant cupcake mixture',
-        price: 5,
-        type: 'grocery',
-        offer: {
-            number: 10,
-            percent: 30
-        }
-    },
-    {
-        id: 4,
-        name: 'All-in-one',
-        price: 260,
-        type: 'beauty'
-    },
-    {
-        id: 5,
-        name: 'Zero Make-up Kit',
-        price: 20.5,
-        type: 'beauty'
-    },
-    {
-        id: 6,
-        name: 'Lip Tints',
-        price: 12.75,
-        type: 'beauty'
-    },
-    {
-        id: 7,
-        name: 'Lawn Dress',
-        price: 15,
-        type: 'clothes'
-    },
-    {
-        id: 8,
-        name: 'Lawn-Chiffon Combo',
-        price: 19.99,
-        type: 'clothes'
-    },
-    {
-        id: 9,
-        name: 'Toddler Frock',
-        price: 9.99,
-        type: 'clothes'
+fetch('./json/products.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('No se pudo cargar el archivo JSON');
     }
-]
-// console.log(products)
+    return response.json();
+  })
+  .then(data => {
+    products = data.products;
+    console.log("Productos cargados:", products);
+  })
+  .catch(error => console.error("Error al cargar los productos:", error));
+
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
-const cart = [];
+let cart = [];
 
 let total = 0;
 
@@ -165,9 +103,9 @@ const printCart = () => {
                             <th scope="row">${item.name}</th>
                             <td>${unitPrice} €</td>
                             <td> 
-                                <i id="product_decrease" class="fa-solid fa-arrow-left" onclick="removeFromCart(${item.id})"></i> 
+                                <i id="product_decrease" class="fa-solid fa-minus" onclick="removeFromCart(${item.id})"></i> 
                                     ${item.quantity}
-                                <i id="product_increase" class="fa-solid fa-arrow-right" onclick="addFromCart(${item.id})"></i>
+                                <i id="product_increase" class="fa-solid fa-plus" onclick="addFromCart(${item.id})"></i>
                             </td>
                             <td>${totalPrice} €</td>
                         </tr>`;
