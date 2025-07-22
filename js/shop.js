@@ -4,15 +4,15 @@ let products = [];
 fetch('./json/products.json')
   .then(response => {
     if (!response.ok) {
-      throw new Error('No se pudo cargar el archivo JSON');
+      throw new Error("No se ha podido cargar el archivo JSON");
     }
     return response.json();
   })
   .then(data => {
     products = data.products;
-    console.log("Productos cargados:", products);
+    console.log("Productos cargados: ", products);
   })
-  .catch(error => console.error("Error al cargar los productos:", error));
+  .catch(error => console.error("Error al cargar los productos: ", error));
 
 
 // Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
