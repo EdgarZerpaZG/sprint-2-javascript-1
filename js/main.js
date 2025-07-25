@@ -135,7 +135,3 @@ const addFromCart = (id) => {
     printCart();
     cartLocalStorage();
 }
-
-const open_modal = () =>  {
-    printCart();
-}
