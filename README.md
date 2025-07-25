@@ -49,10 +49,10 @@ Como se ha mencionado en la sección anterior, se necesita iniciar un servidor l
 Para este caso y dependiendo del tipo de editor de código y/o sistema operativo se puede realizar con alguna de las siguientes herramientas:
 
 - **Visual Studio Code**: Extensión de Live Server.
- - Sistema operativo: Windows, macOS, Linux.
+    Sistema operativo: Windows, macOS, Linux.
 
 - **Node.js http-server**: Librería **http-server** Comando: **npx http-server**
- - Sistema operativo: Todos (requiere Node.js instalado).
+    Sistema operativo: Todos (requiere Node.js instalado).
 
 - **Python HTTP Server**: Comando: **python -m http.server**.
- - Sistema operativo: Windows, macOS, Linux.
+    Sistema operativo: Windows, macOS, Linux.
