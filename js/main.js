@@ -1,33 +1,37 @@
-// Products
 let products = [];
+let cart = [];
+let total = 0;
+
+const cartLocalStorage = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+};
+
+const loadCartLocalStorage = () => {
+    const cartStorage = localStorage.getItem('cart');
+    if (cartStorage) {
+        cart = JSON.parse(cartStorage);
+        applyPromotionsCart();
+        calculateTotal();
+        printCart();
+    }
+};
 
 async function obtainData() {
     try {
         const response = await fetch('./json/products.json');
-        if (!response.ok) {
-            throw new Error("There're not JSON file.");
-        }
+        if (!response.ok) throw new Error("No se encontró el archivo JSON.");
         const data = await response.json();
         products = data.products;
-        console.log("Products received:  ", products);
+        localStorage.setItem('products', JSON.stringify(products)); // punto 3
         return products;
     } catch (error) {
-        console.error("Error uploading the data: ", error);
+        console.error("Error cargando los datos:", error);
     }
 }
-obtainData().then(datos => {console.log(datos)});
 
+obtainData().then(loadCartLocalStorage);
 
-// Improved version of cartList. Cart is an array of products (objects), but each one has a quantity field to define its quantity, so these products are not repeated.
-let cart = [];
-
-let total = 0;
-
-// Exercise 1
 const buy = (id) => {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array
-
         const product = products.find(item => item.id === id);
         const cartProduct = cart.find(item => item.id === id);
 
@@ -36,56 +40,38 @@ const buy = (id) => {
         } else {
             cart.push({...product, quantity: 1});
         }
-
-        console.log(cart);
-        
         applyPromotionsCart();
         calculateTotal();
         printCart();
+        cartLocalStorage();
 }
 
-
-// Exercise 2
 const cleanCart = () =>  {
     cart.length = 0;
-    console.log("Carrito limpio:", cart);
     calculateTotal();
     printCart();
+    cartLocalStorage();
 }
 
-// Exercise 3
 const calculateTotal = () =>  {
-    // Calculate total price of the cart using the "cartList" array
     total = 0;
     let quantity = 0;
-    const totalPrice = document.getElementById('total_price');
-    const totalCount = document.getElementById('count_product');
     for (let i = 0; i < cart.length; i++) {
         const item = cart[i];
         quantity += item.quantity;
-        total += parseFloat(item.totalDiscount || (item.price * quantity));
+        total += parseFloat(item.totalDiscount || (item.price * item.quantity));
     }
-    console.log("El total en el carrito es de: " + total + " €");
-    totalCount.innerHTML = quantity;
-    totalPrice.innerHTML = total.toFixed(2) + " €";
+    return { total, quantity };
 }
 
-// Exercise 4
 const applyPromotionsCart = () =>  {
-    // Apply promotions to each item in the array "cart"
     for(let i = 0; i < cart.length; i++){
         const item = cart[i];
-        console.log("El total de " + item.name + " en el carrito es de: " + item.quantity);
         if(item.offer && item.quantity >= item.offer.number){
-            console.log("El precio de cada " + item.name + " sin descuento es de: " + item.price);
-
             const discount = item.offer.percent;
             const discountPrice = item.price * (1 - discount / 100);
-
             item.totalDiscount = (discountPrice * item.quantity).toFixed(2);
             item.discountPrice = discountPrice.toFixed(2);
-
-            console.log("El descuento aplicado en cada " + item.name + " es de: " + discountPrice.toFixed(2));
         }else{
             item.totalDiscount = (item.price * item.quantity).toFixed(2);
             item.discountPrice = item.price.toFixed(2);
@@ -93,11 +79,9 @@ const applyPromotionsCart = () =>  {
     }
 }
 
-// Exercise 5
 const printCart = () => {
-    // Fill the shopping cart modal manipulating the shopping cart dom
-    const cartList = document.getElementById('cart_list');
     let tableRow = "";
+    const cartList = document.getElementById('cart_list');
     for(let i = 0; i < cart.length; i++){
         const item = cart[i];
         const unitPrice = item.discountPrice ? item.discountPrice : item.price;
@@ -114,13 +98,13 @@ const printCart = () => {
                         </tr>`;
     }
     cartList.innerHTML = tableRow;
+    const { total, quantity } = calculateTotal();
+    const totalPrice = document.getElementById('total_price');
+    const totalCount = document.getElementById('count_product');
+    totalCount.innerHTML = quantity;
+    totalPrice.innerHTML = total.toFixed(2) + " €";
 }
 
-
-
-// ** Nivell II **
-
-// Exercise 7
 const removeFromCart = (id) => {
     for (let i = 0; i < cart.length; i++) {
         const item = cart[i];
@@ -132,10 +116,10 @@ const removeFromCart = (id) => {
             break;
         }
     }
-
     applyPromotionsCart();
     calculateTotal();
     printCart();
+    cartLocalStorage();
 }
 
 const addFromCart = (id) => {
@@ -146,10 +130,10 @@ const addFromCart = (id) => {
             break;
         }
     }
-
     applyPromotionsCart();
     calculateTotal();
     printCart();
+    cartLocalStorage();
 }
 
 const open_modal = () =>  {

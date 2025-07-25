@@ -4,21 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopNow - Online Shopping</title>
-    <!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-    <!-- Fontawesome icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Bootstrap core CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <!-- Core theme CSS-->
-    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- Skip Navigation -->
-	<a href="#main-content" class="skip-link visually-hidden-focusable">Skip to main content</a>
-
-	<!-- Navigation-->
 	<header class="primary-header sticky-top w-100 z-3">
 		<nav class="navbar py-3 navbar-light bg-light navbar-expand-lg" id="main-nav">
 			<div class="container">
@@ -36,7 +27,7 @@
 							data-bs-target="#cartModal" data-bs-auto-close="outside" aria-label="Open shopping cart">
 							<i class="fas fa-shopping-cart me-1" aria-hidden="true"></i>
 							<span>Cart</span>
-							<span class="badge bg-dark text-white ms-1 rounded-pill" id="count_product">0</span>
+							<span class="badge bg-success text-white ms-1 rounded-pill" id="count_product">0</span>
 						</button>
 					</div>
 				</aside>
@@ -68,8 +59,7 @@
 	</header>
 
     <main id="main-content">
-		<!-- Hero Section -->
-		<section class="hero bg-dark py-5" aria-label="Promotional banner">
+		<section class="hero bg-success py-5" aria-label="Promotional banner">
 			<div class="container px-4 px-lg-5 my-5">
 				<div class="text-center text-white">
 					<h1 class="display-4 fw-bolder">IT Academy Shop</h1>
@@ -78,7 +68,6 @@
 			</div>
 		</section>
 
-		<!-- Product Sections -->
 		<article class="product-section pt-5" id="grocery">
 			<h2 class="text-center">
 				<i class="fas fa-shopping-basket pe-3" aria-hidden="true"></i>
@@ -86,10 +75,9 @@
 			</h2>
 			<div class="container px-4 px-lg-5 mt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-					<!-- Product Cards -->
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Cooking Oil product image"
+							<img class="card-img-top p-3" src="./img/oil.png" alt="Cooking Oil product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -110,7 +98,7 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Pasta product image"
+							<img class="card-img-top p-3" src="./img/pasta.png" alt="Pasta product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -131,7 +119,7 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg"
+							<img class="card-img-top p-3" src="./img/cupcake.png"
 								alt="Instant cupcake mixture product image" loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -160,10 +148,9 @@
 			</h2>
 			<div class="container px-4 px-lg-5 mt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-					<!-- Product Cards -->
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="All-in-1 product image"
+							<img class="card-img-top p-3" src="./img/cosmetic-bag.png" alt="All-in-1 product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -184,7 +171,7 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Zero makeup kit product image"
+							<img class="card-img-top p-3" src="./img/makeup.png" alt="Zero makeup kit product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -205,7 +192,7 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Lip tints product image"
+							<img class="card-img-top p-3" src="./img/lip-gloss.png" alt="Lip tints product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -234,10 +221,9 @@
 			</h2>
 			<div class="container px-4 px-lg-5 mt-5">
 				<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-					<!-- Product Cards -->
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Lawn dress product image"
+							<img class="card-img-top p-3" src="./img/dress.png" alt="Lawn dress product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -258,7 +244,7 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Lawn-chiffon combo product image"
+							<img class="card-img-top p-3" src="./img/clothes.png" alt="Lawn-chiffon combo product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -279,7 +265,7 @@
 					</div>
 					<div class="col mb-5">
 						<article class="card product-card h-100">
-							<img class="card-img-top p-3" src="./img/product.svg" alt="Toddler Frock product image"
+							<img class="card-img-top p-3" src="./img/child-dress.png" alt="Toddler Frock product image"
 								loading="lazy" />
 							<div class="card-body p-4">
 								<div class="text-center">
@@ -303,15 +289,14 @@
 		</article>
 	</main>
 
-    <!-- Footer-->
-	<footer class="py-3 bg-dark">
+	<footer class="py-3 bg-success">
 		<div class="container">
 			<p class="m-0 text-center text-white">Copyright &copy; ShopNow <span id="current-year">2025</span></p>
 		</div>
 	</footer>
 
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-fullscreen-lg-down">
+		<div class="modal-dialog modal-xl modal-fullscreen-lg-down">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="cartModalLabel">
@@ -341,19 +326,15 @@
 						Total: <span id="total_price">0 €</span>
 					</div>
 					<div class="text-center">
-						<a href="checkout.html" class="btn btn-primary m-3">Checkout</a>
-						<button type="button" class="btn btn-secondary m-3" id="clean-cart" onclick="cleanCart()">Clean Cart</button>
+						<a href="form.html" class="btn btn-success m-3">Contact</a>
+						<button type="button" class="btn btn-warning m-3" id="clean-cart" onclick="cleanCart()">Clean Cart</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-    <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    
-    <!-- Core theme JS-->
-	<script src="js/shop.js"></script>
-	<script src="js/checkout.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
