@@ -1,1 +1,0 @@
-console.log("Sprint 2: Basic exercises - JavaScript 1");

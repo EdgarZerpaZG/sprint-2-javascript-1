@@ -1,7 +1,6 @@
 class Persona{
     nom = "";
 
-    //Constructores
     constructor(nom){
         this.nom = nom;
     }
