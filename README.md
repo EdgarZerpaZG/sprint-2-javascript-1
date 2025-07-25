@@ -46,13 +46,10 @@ Directorio creado para la configuración del puerto utilizado al ejecutar un ser
 
 Como se ha mencionado en la sección anterior, se necesita iniciar un servidor local para poder ejecutar la petición **fetch()** que es la que se encarga de llamar la informaión de los productos en el archivo **products.json**, en caso contrario no se podra recibir dicha información y no se podrá ejecutar la funcionalidad del carrito de compras.
 
-Para este caso y dependiendo del tipo de editor de código y/o sistema operativo se puede realizar con alguna de las siguientes herramientas:
+Para este caso y dependiendo del tipo de editor de código y/o sistema operativo se puede ejecutar este proyecto con alguna de las siguientes herramientas recomendadas:
 
-- **Visual Studio Code**: Extensión de Live Server.
-    Sistema operativo: Windows, macOS, Linux.
+1. **Visual Studio Code**: Extensión de Live Server. Sistema operativo: Windows, macOS, Linux.
 
-- **Node.js http-server**: Librería **http-server** Comando: **npx http-server**
-    Sistema operativo: Todos (requiere Node.js instalado).
+3. **Python HTTP Server**: Comando: **python -m http.server**. Sistema operativo: Windows, macOS, Linux.
 
-- **Python HTTP Server**: Comando: **python -m http.server**.
-    Sistema operativo: Windows, macOS, Linux.
+2. **Node.js http-server**: Librería **http-server** Comando: **npx http-server**. Sistema operativo: Todos (requiere Node.js instalado).
