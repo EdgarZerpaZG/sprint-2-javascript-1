@@ -136,6 +136,9 @@ const addFromCart = (id) => {
     cartLocalStorage();
 }
 
-const open_modal = () =>  {
-    printCart();
-}
+const cartModal = document.getElementById('cartModal');
+const openCartBtn = document.getElementById('openCart');
+
+cartModal.addEventListener('hide.bs.modal', () => {
+openCartBtn.focus();
+});
