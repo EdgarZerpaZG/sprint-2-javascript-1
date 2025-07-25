@@ -135,10 +135,3 @@ const addFromCart = (id) => {
     printCart();
     cartLocalStorage();
 }
-
-const cartModal = document.getElementById('cartModal');
-const openCartBtn = document.getElementById('openCart');
-
-cartModal.addEventListener('hide.bs.modal', () => {
-openCartBtn.focus();
-});
